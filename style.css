@@ -1,0 +1,321 @@
+@font-face {
+    font-family: 'MoonFlowerBold';
+    src: url('font/MoonFlowerBold-MVppp.ttf') format('truetype');
+    font-weight: bold;
+}
+
+body, html {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.HomeBackground {
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.siteTitle {               
+    font-size: 80px;
+    font-family: 'MoonFlowerBold';
+    text-align: center;
+    background-color: white;
+    color: #fa5c61;
+    font-weight: 200;
+    z-index: 10;
+    border-radius: 16px;
+    width: fit-content;
+    padding: 12px;
+    margin: 20px auto;
+    max-width: 100%;
+    display: block;
+}
+
+
+.icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.iconObject {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 16px;
+    max-width: 240px;
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 5;
+    transition: transform 0.3s;
+}
+
+.iconObject a {
+    display:flex;
+    justify-content: center;   
+}
+
+.icons img {
+    width: 50%;
+    margin: auto;
+}
+
+.iconObject:hover {
+    transform: scale(1.1);
+}
+
+p {
+    color: #fa5c61;
+    font-family: 'MoonFlowerBold';
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+a, a:hover, a:active, a:visited {
+    color: white;
+}
+
+footer {
+    font-size: 5px;
+    text-align: center;          
+    background-color: #86ac33; 
+    color: white;                
+    width: 100%;     
+    height: 50px;            
+    position: fixed;           
+    bottom: 0px;   
+    line-height: 50px;           
+}
+
+footer p {
+    color: white;
+    margin: 0;
+}
+
+/* Tic Tac Toe */
+#Tic_Tac_Toe {
+    display: none;
+}
+
+#Tic_Tac_Toe:target {
+    display: flex;
+}
+
+#Tic_Tac_Toe:target ~ .iconObject {
+    display: none;
+}
+
+#Tic_Tac_Toe:target ~ #Coin_Flip {
+    display: none;
+}
+
+#Tic_Tac_Toe:target ~ #Dice_Roll {
+    display: none;
+}
+
+#Tic_Tac_Toe:target ~ #Flower_Chomp {
+    display: none;
+}
+
+#TicTacToeBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    z-index: 2;
+    margin-top: 50px;
+    padding:20px;
+    position: fixed;
+
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates a 3x3 grid */
+    gap: 10px; /* Space between cells */
+    margin: 20px auto; /* Centering the grid */
+    max-width: 300px; /* Restricting the maximum width of the grid */
+}
+
+.cell {
+    background-color: #fff;
+    border: 2px solid #333;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    aspect-ratio: 1 / 1; /* Ensures that cells are square */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* Set a fixed height for better visual */
+    color: #444; /* Default text color */
+}
+
+.label, #easy, #medium, #hard {
+    margin: 10px 0;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 8px;
+    width: auto;  
+}
+
+/* Initially hide all game sections */
+.gameSection {
+    display: none;
+}
+
+/* Display the section when it is targeted */
+#Tic_Tac_Toe:target,
+#Coin_Flip:target,
+#Dice_Roll:target,
+#Flower_Chomp:target {
+    display: block;
+}
+
+/* Ensure that when one section is targeted, others are hidden */
+#Tic_Tac_Toe:target ~ .gameSection:not(#Tic_Tac_Toe),
+#Coin_Flip:target ~ .gameSection:not(#Coin_Flip),
+#Dice_Roll:target ~ .gameSection:not(#Dice_Roll),
+#Flower_Chomp:target ~ .gameSection:not(#Flower_Chomp) {
+    display: none;
+}
+
+/* Hide icons when any game section is targeted */
+#Tic_Tac_Toe:target ~ #homeIcons,
+#Coin_Flip:target ~ #homeIcons,
+#Dice_Roll:target ~ #homeIcons,
+#Flower_Chomp:target ~ #homeIcons {
+    display: none;
+}
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0; /* Ensure no default margin */
+}
+
+.gameSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+#TicTacToeBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px; /* Corrected max width */
+    aspect-ratio: 1;
+    position: absolute; /* Changed from fixed to absolute */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Align center correctly */
+    z-index: 2; /* Ensure it is above the background */
+}
+
+.gameSection:target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px; /* Ensure the section takes at least the height of the viewport */
+    position: relative;
+    z-index: 5; /* Emnsure it's above the background */
+}
+
+h2, #resultDisplay, #restartButton {
+    font-family: 'MoonFlowerBold';
+    color: #fa5c61;
+    text-align: center;
+    background-color: white;
+    font-weight: 200;
+    z-index: 10;
+    border-radius: 16px;
+    width: fit-content;
+    padding: 12px;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+h2 {
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+#resultDisplay, #restartButton {
+    margin: 10px 0;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 8px;
+    width: auto;
+}
+
+.cell:hover {
+    background-color: #eaeaea; /* Hover effect for user understanding */
+}
+
+#resultDisplay {
+    font-size: 24px;
+    margin: 20px;
+    z-index: 5;
+}
+
+/*--------DICE ROLL--------------*/
+#Dice_Roll {
+    font-family: 'MoonFlowerBold';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#RollDiceButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#RollDiceButton:hover {
+    background-color: lightgrey;
+}
+
+#diceResult img {
+    display: block;
+    margin: auto;
+}
