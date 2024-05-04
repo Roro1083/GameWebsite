@@ -1,5 +1,5 @@
 /*---------------TIC TAC TOE-----------------*/
-//Sourced from Professor Posnett's Tic-Tac=Toe Implementation
+//This code is adapted from the Tic Tac Toe implementation by Professor Posnett.
 
 // Groups all cells into one variable
 const cells = document.querySelectorAll('.cell');
@@ -52,9 +52,21 @@ function getLevel() {
 function playCell(clickedCell, clickedCellIndex) {
     // Mark current cell as played by the player in indices and on the board
     gameState[clickedCellIndex] = currentPlayer;
-    clickedCell.innerHTML = currentPlayer;
-    // Set the background image of the cell based on the current player
-    clickedCell.style.backgroundImage = `url(${currentPlayer === 'Strawberry' ? 'strawberry.png' : 'lemon.png'})`;
+
+    // Create image for marking
+    const img = document.createElement('img');
+    // Image of strawberry by drogatnev found on iStock (https://www.istockphoto.com/vector/red-berry-strawberry-and-a-half-gm1138212604-303792503) 
+    img.src = currentPlayer === 'Strawberry' ? 'img/strawberry.png' : 'img/lemon.png';
+    img.alt = currentPlayer; // Sets alt text for accessibility
+    img.classList.add('cellIcon');
+
+    // Add image to board
+    clickedCell.appendChild(img);
+
+    // Log current game state
+    console.log('Game State:', gameState);
+    // Log current player
+    console.log('Current Player:', currentPlayer);
 }
 
 // Update game and results when a cell is clicked
@@ -93,17 +105,17 @@ function updateGameStatus() {
 // Selects the other player
 function togglePlayer() {
     // If the current player is Strawberry (human), switch to computer, else switch to human and display
-   currentPlayer = currentPlayer === 'Strawberry' ? 'Lemon' : 'Strawberry';
+    currentPlayer = currentPlayer === 'Strawberry' ? 'Lemon' : 'Strawberry';
     document.getElementById('resultDisplay').innerText = currentPlayer + "'s turn";
 
     // Check current difficulty for computer's next move
-    if (currentPlayer === 'O' && gameActive) {
-        let difficulty = getDifficulty();
-        if(difficulty === "easy")
+    if (currentPlayer === 'Lemon' && gameActive) {
+        let level = getLevel();
+        if(level === "easy")
             easyModeComputerMove();
-        else if(difficulty === "medium")
-           mediumModeComputerMove();
-        else // If difficulty = hard
+        else if(level === "medium")
+            mediumModeComputerMove();
+        else // If level = hard
             hardModeComputerMove(9); 
     }
 }
@@ -128,17 +140,17 @@ function checkWinner() {
 
 // Easy mode move: Computer chooses random cell
 function easyModeComputerMove() {
-    let availableCells = [];
+    let emptyCells = [];
     // Put all empty cells into the array
     gameState.forEach((cell, i) => {
         if (cell === "") {
-            availableCells.push(i);
+            emptyCells.push(i);
         }
     });
 
     // Pick a random cell from the array to play
-    if (availableCells.length > 0) {
-        const move = availableCells[Math.floor(Math.random() * availableCells.length)];
+    if (emptyCells.length > 0) {
+        const move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
         playCell(cells[move], move);  // Assume this function places the mark and updates the game state
         updateGameStatus();  // Assume this function checks for a win/draw and updates the UI
     }

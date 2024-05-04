@@ -1,6 +1,3 @@
-
-
-/*---------------DICE ROLL--------------------------*/
 document.getElementById('RollDiceButton').addEventListener("click", rollDice);
 
 function rollDice() {

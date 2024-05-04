@@ -39,7 +39,7 @@ body, html {
     padding: 12px;
     margin: 20px auto;
     max-width: 100%;
-    display: block;
+    display: flex;
 }
 
 
@@ -114,8 +114,11 @@ footer p {
 }
 
 /* Tic Tac Toe */
+/*This code is adapted from the Tic Tac Toe implementation by Professor Posnett. */
+
 #Tic_Tac_Toe {
-    display: none;
+    display: flex;
+    flex-direction: column;
 }
 
 #Tic_Tac_Toe:target {
@@ -123,19 +126,23 @@ footer p {
 }
 
 #Tic_Tac_Toe:target ~ .iconObject {
-    display: none;
+    display: flex;
 }
 
 #Tic_Tac_Toe:target ~ #Coin_Flip {
-    display: none;
+    display: flex;
 }
 
 #Tic_Tac_Toe:target ~ #Dice_Roll {
-    display: none;
+    display: flex;
 }
 
 #Tic_Tac_Toe:target ~ #Flower_Chomp {
-    display: none;
+    display: flex;
+}
+
+#Tic_Tac_Toe footer {
+    font-size: 10px;
 }
 
 #TicTacToeBoard {
@@ -172,6 +179,16 @@ footer p {
     justify-content: center;
     height: 100px; /* Set a fixed height for better visual */
     color: #444; /* Default text color */
+    position: relative;
+}
+
+.cellIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%; 
+    max-height: 80%; 
 }
 
 .label, #easy, #medium, #hard {
@@ -192,7 +209,7 @@ footer p {
 #Coin_Flip:target,
 #Dice_Roll:target,
 #Flower_Chomp:target {
-    display: block;
+    display: flex;
 }
 
 /* Ensure that when one section is targeted, others are hidden */
@@ -274,6 +291,12 @@ h2 {
     background-color: white;
     border-radius: 8px;
     width: auto;
+    font-size: 30px;
+    border: none;
+}
+
+#restartButton:hover {
+    transform: scale(1.1);
 }
 
 .cell:hover {
@@ -293,29 +316,97 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    position: relative;
     margin: 0;
 }
 
 #RollDiceButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: white;
+    font-family: 'MoonFlowerBold';
+    color: #fa5c61;
+    font-size: 30px;
     border: none;
-    border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+    text-align: center;
+    background-color: white;
+    font-weight: 200;
+    z-index: 10;
+    border-radius: 16px;
+    width: fit-content;
+    padding: 12px;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 #RollDiceButton:hover {
-    background-color: lightgrey;
+    transform: scale(1.1);
 }
 
 #diceResult img {
-    display: block;
-    margin: auto;
+    display: flex;
+    margin: 100px;
+}
+
+/*--------FLOWER CHOMP--------------*/
+/* This code is adapted from the Snake Game implementation by Pleiterson.
+Original code repository: https://github.com/Pleiterson/snake-game-javascript
+License: MIT License (included in repository)*/
+#Flower_Chomp {
+    font-family: 'MoonFlowerBold';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+}
+
+#Flower_Chomp p {
+    background: white;
+    font-size: 30px;
+    margin-top: -3px;
+}
+#snake {
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/*--------COIN FLIP--------------*/
+#Coin_Flip {
+    font-family: 'MoonFlowerBold';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+}
+
+#FlipCoinButton {
+    font-family: 'MoonFlowerBold';
+    color: #fa5c61;
+    font-size: 30px;
+    border: none;
+    text-align: center;
+    background-color: white;
+    font-weight: 200;
+    z-index: 10;
+    border-radius: 16px;
+    width: fit-content;
+    padding: 12px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+#FlipCoinButton:hover {
+    transform: scale(1.1);
+}
+
+#coinResult img {
+    display: flex;
+    margin: 10px;
+    width: 450px;
+    height: 450px;
 }
