@@ -111,9 +111,9 @@ function togglePlayer() {
     // Check current difficulty for computer's next move
     if (currentPlayer === 'Lemon' && gameActive) {
         let level = getLevel();
-        if(level === "easy")
+        if(level === 'easy')
             easyModeComputerMove();
-        else if(level === "medium")
+        else if(level === 'medium')
             mediumModeComputerMove();
         else // If level = hard
             hardModeComputerMove(9); 
