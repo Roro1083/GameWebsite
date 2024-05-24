@@ -37,7 +37,7 @@ body, html {
     border-radius: 16px;
     width: fit-content;
     padding: 12px;
-    margin: 20px auto;
+    margin: 15px auto;
     max-width: 100%;
     display: flex;
 }
@@ -46,12 +46,10 @@ body, html {
 .icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    padding: 20px;
     z-index: 3;
     box-sizing: border-box;
 }
@@ -97,20 +95,20 @@ a, a:hover, a:active, a:visited {
 }
 
 footer {
-    font-size: 5px;
     text-align: center;          
     background-color: #86ac33; 
     color: white;                
     width: 100%;     
-    height: 50px;            
+    height: 30px;            
     position: fixed;           
     bottom: 0px;   
     line-height: 50px;           
 }
 
 footer p {
+    font-size: 15px;
     color: white;
-    margin: 0;
+    margin: -7px;
 }
 
 /* Tic Tac Toe */
@@ -154,8 +152,8 @@ footer p {
     max-width: 500px;
     aspect-ratio: 1;
     z-index: 2;
-    margin-top: 50px;
-    padding:20px;
+    margin-top: 30px;
+    padding: 20px;
     position: fixed;
 
 }
@@ -163,7 +161,7 @@ footer p {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Creates a 3x3 grid */
     gap: 10px; /* Space between cells */
-    margin: 20px auto; /* Centering the grid */
+    margin: 10px auto; /* Centering the grid */
     max-width: 300px; /* Restricting the maximum width of the grid */
 }
 
@@ -282,21 +280,17 @@ h2, #resultDisplay, #restartButton {
 
 h2 {
     font-size: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-#resultDisplay, #restartButton {
-    margin: 10px 0;
-    padding: 5px 10px;
-    background-color: white;
+.resultContainer {
+    display: flex;
+    flex-direction: row;
     border-radius: 8px;
-    width: auto;
-    font-size: 30px;
+    width: 400px;
     border: none;
-}
-
-#restartButton:hover {
-    transform: scale(1.1);
+    justify-content: space-between;
+    margin-left: 20px;
 }
 
 .cell:hover {
@@ -305,8 +299,19 @@ h2 {
 
 #resultDisplay {
     font-size: 24px;
-    margin: 20px;
+    margin-top: 5px;
     z-index: 5;
+}
+
+#restartButton {
+    border: none;
+    font-size: 24px;
+    transition: 0.1s;
+    margin-top: 5px;
+}
+
+#restartButton:hover {
+    transform: scale(1.1);
 }
 
 /*--------DICE ROLL--------------*/
@@ -342,7 +347,7 @@ h2 {
 
 #diceResult img {
     display: flex;
-    margin: 100px;
+    margin-top: 50px;
 }
 
 /*--------FLOWER CHOMP--------------*/
@@ -364,13 +369,14 @@ License: MIT License (included in repository)*/
     font-size: 30px;
     margin-top: -3px;
 }
-#snake {
+
+#caterpillar {
     height: 50vh;
-    width: 50vw;
+    width: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    margin-top: 10px;
 }
 
 /*--------COIN FLIP--------------*/
@@ -406,7 +412,7 @@ License: MIT License (included in repository)*/
 
 #coinResult img {
     display: flex;
-    margin: 10px;
-    width: 450px;
-    height: 450px;
+    margin-top: 40px;
+    width: 300px;
+    height: 300px;
 }
